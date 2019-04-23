@@ -13,5 +13,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         myText = (TextView) findViewById(R.id.textView);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        })
     }
 }
