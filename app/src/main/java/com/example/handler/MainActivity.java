@@ -58,6 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Opóźniony Toast!", Toast.LENGTH_LONG).show();
 
             }
-        }, 5000);
+        }, 10000);
     }
 }
