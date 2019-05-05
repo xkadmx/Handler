@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Message message = new Message();
-                message.obj =  "Hello!";
+                message.obj =  "Hello! Wiadomość przekazana przez obiekt handler";
                 message.arg1 = 1;
                 handler.sendMessage(message);
 
