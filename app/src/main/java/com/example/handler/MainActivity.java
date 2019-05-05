@@ -1,15 +1,16 @@
 package com.example.handler;
 
-import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     TextView myText;
     Handler handler;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,11 +18,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         myText = (TextView) findViewById(R.id.myText);
-        handler = new Handler(){
+        handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
-                super.handleMessage(msg);
-                myText.setText((String) msg.obj);
+                if (msg.what == 1) {
+                    myText.setText((String) msg.obj);
+                } else if (msg.what == 2) {
+                    Log.i("Handler", "Wiadomość o id 2 dotarła");
+
+                }
             }
         };
 
@@ -29,13 +34,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Message message = new Message();
-                message.obj =  "Hello! Wiadomość przekazana przez obiekt handler";
-                message.arg1 = 1;
+                message.obj = "Hello! Wiadomość przekazana przez obiekt handler";
+                message.what = 1;
                 handler.sendMessage(message);
+            }
+        }
+        ).start();
 
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                handler.sendEmptyMessage(2);
 
             }
-        }).start();
-
+        }
+        ).start();
     }
 }
