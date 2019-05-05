@@ -21,18 +21,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
+                myText.setText((String) msg.obj);
             }
-        }
+        };
 
         new Thread(new Runnable() {
             @Override
             public void run() {
+                Message message = new Message();
+                message.obj =  "Hello!";
+                message.arg1 = 1;
+                handler.sendMessage(message);
 
 
             }
         }).start();
-        Intent intent = new Intent();
-        intent.setAction("android.intent.action.VIEW");
-        sendBroadcast(intent);
+
     }
 }
