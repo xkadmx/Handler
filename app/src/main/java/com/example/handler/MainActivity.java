@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     TextView myText;
@@ -51,5 +52,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         ).start();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(MainActivity.this, "Opóźniony Toast!", Toast.LENGTH_LONG).show());
+
+            }
+        }), 5000);
     }
 }
