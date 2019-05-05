@@ -55,9 +55,9 @@ public class MainActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(MainActivity.this, "Opóźniony Toast!", Toast.LENGTH_LONG).show());
+                Toast.makeText(MainActivity.this, "Opóźniony Toast!", Toast.LENGTH_LONG).show();
 
             }
-        }), 5000);
+        }, 5000);
     }
 }
