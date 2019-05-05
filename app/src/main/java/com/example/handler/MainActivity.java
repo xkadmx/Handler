@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 Message message = new Message();
                 message.obj = "Hello! Wiadomość przekazana przez obiekt handler";
                 message.what = 1;
-                handler.sendMessage(message);
+                handler.sendMessageDelayed(message, 5000);
             }
         }
         ).start();
